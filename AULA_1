@@ -29,5 +29,11 @@ cução
 nopolizados por esses ataques
 
 - Funcionalidades 
--> Para cumprir os objetivos de abstracao e gerencia , o SO tem recursos e particularidades
-. O SO defini 
+. Gerencia de processos
+-> Ele distribui a capacidade de processamento de forma justa entre os apps , sem que um monopolize os 
+recursos , e uma ilusao de que o app usado detem esse recurso , assim permitindo sistemas mais iterati-
+vos 
+. Gerencia de memoria
+->
+
+.
