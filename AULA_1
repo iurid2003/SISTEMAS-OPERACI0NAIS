@@ -34,6 +34,60 @@ nopolizados por esses ataques
 recursos , e uma ilusao de que o app usado detem esse recurso , assim permitindo sistemas mais iterati-
 vos 
 . Gerencia de memoria
-->
+-> Fornecer a cada aplicacao uma area de memoria justa propia , independente e isolada das demais apli-
+cações e inclusive do sistema operacional , melhorando estabilidade e seguranca ja que com a memoria p-
+ropia impede que os apps isolados mudem o funcionamento dos demais
+.Gerencia de dispositivos
+-> A função da gerência de dispositivos (também conhecida como gerência de entrada/saída) é implementar
+a interação com cada dispositivo por meio de drivers e criar modelos abstratos que permitam agrupar
+vários dispositivos similares sob a mesma interface de acesso.
+.Gerencia de arquivos
+-> esta funcionalidade é construída sobre a gerência de dispositivose visa criar arquivos e diretórios,
+definindo sua interface de acesso e as regras para seu uso. É importante observar que os conceitos abs-
+tratos de arquivo e diretório são tão importantes e difundidos que muitos sistemas operacionais os
+usam para permitir o acesso a recursos que nada tem a ver com armazenamento
+.Gerencia de protecao
+-> com computadores conectados em rede e compartilhados por vários usuários, é importante definir clar-
+amente os recursos que cada usuário pode acessar, as formas de acesso permitidas (leitura, escrita, etc.) 
+e garantir que essas definições sejam cumpridas.
 
-.
+- Categorias
+-> Os sistemas operacionais podem ser classificados segundo diversos parâmetros e aspectos, como tamanho 
+de código, velocidade, suporte a recursos específicos, acesso à rede, etc.
+.Batch(de lote )
+->  os sistemas operacionais mais antigos trabalhavam “por lote”, ou seja, todos os programas a executar 
+eram colocados em uma fila, com seus dados e demais informações para a execução
+.De rede 
+-> um sistema operacional de rede deve possuir suporte à operação em rede, ou seja, a capacidade de ofer-
+ecer às aplicações locais recursos 
+.Distribuido
+-> em um sistema operacional distribuído, os recursos de cada computador estão disponíveis a todos na rede
+, de forma transparente aos usuários. Ao lançar uma aplicação, o usuário interage com sua interface, mas n-
+-ão sabe onde ela está executando ou armazenando seus arquivos: o sistema é quem decide, de forma transpar-
+-ente ao usuário
+.Multiusuario
+-> em um sistema operacional distribuído, os recursos de cada computador estão disponíveis a todos na rede, 
+de forma transparente aos usuários. Ao lançar uma aplicação, o usuário interage com sua interface, mas não
+sabe onde ela está executando ou armazenando seus arquivos: o sistema é quem decide, de forma transparente
+ao usuário
+.Servidor 
+->  sistema operacional servidor deve permitir a gestão eficiente de grandes quantidades de recursos 
+(disco, memória, processadores), impondo prioridadese limites sobre o uso dos recursos pelos usuários e seus
+aplicativos
+.Desktop 
+-> um sistema operacional “de mesa” é voltado ao atendimento do usuário doméstico e corporativo para a reali-
+-zação de atividades corriqueiras, como edição de textos e gráficos, navegação na Internet e reprodução de mídia
+.Movel
+-> um sistema operacional móvel é usado em equipamentos de uso pessoal compactos, como smartphones e tablets. 
+Nesse contexto, as principais prioridades são a gestão eficiente da energia (bateria), a conectividade nos dive-
+-rsos tipos de rede (wifi, GSM, Bluetooth, NFC, etc) e a interação com uma grande variedade de sensores (GPS, g-
+-iroscópio, luminosidade, tela de toque, leitor de digitais,etc).
+.Embarcado
+->  um sistema operacional é dito embarcado (embutido ou embedded) quando é construído para operar sobre um har-
+-dware com poucos recursos de processamento, armazenamento e energia. Aplicações típicas desse tipo de sistema 
+aparecem em sistemas de automação e controladores automotivos, equipamen tos eletrônicos de uso doméstico (leit-
+-ores de DVD, TVs, fornos de microondas,centrais de alarme, etc.).
+.Tempo Real 
+-> são sistemas nos quais o tempo é essencial. Ao contrário da ideia usual, um sistema operacional de tempo real
+não precisa ser necessariamente ultrarrápido; sua característica essencial é ter um comportamento temporal previ-
+-sível, ou seja, seu tempo de resposta deve ser previsível no melhor e no pior caso de operação. 
