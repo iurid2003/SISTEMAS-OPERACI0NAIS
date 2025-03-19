@@ -1,4 +1,33 @@
 #Introducao a Sistemas Operacionais 
 - Capitulo 1
 - Conceitos Basicos
--> O sistema que 
+-> Um sistema e composto por  software e hardware , entre os apps de hardware existe uma camada
+software multifacetada e complexa chamada sistema operacional
+
+- Objetivos de um SO
+-> A camada de software que opera entre hardware os programas aplicativos voltados ao usuario fi-
+nal 
+estrutura complexa de software ampla que incorpora aspectos de baixo nivel (drivers de dispositi
+vos e gerencis de memoria fisica) e alto nivel (programas utilitarios e interface grafica).
+!progamas utilitarios ajudam a gerenciar e ajustar o software do sistema ou de apps.
+. Limpar discos rigidos 
+. Fazer backup de dados
+. Compactar arquivos 
+
+- Abstracao de recursos 
+-> O SO defini interfaces abstratas para recursos do hardware para.
+.Prover interfaces de acesso aos dispositivos, mais simples de usar que as interfaces de baixo nivel
+.Tornar os apps independentes do hardware
+.Def interfaces de acesso homogeneas para dispositivos com tecnologias distintas
+
+- Gerência de recursos
+-> O SO que gerencia como o hardware distribui recursos dada a necessidade dos apps
+.O sistema deve distribuir de forma que cada app seja usado de forma correta mesmo com outro em exec-
+cução
+.O SO defini tambem a sequencia que algum recurso utiliza por exemplo (fifo) em uma impressora
+.O SO proteje tambem contra ataques de negacao , assim impendindo que os recursos do sistema sejam ma-
+nopolizados por esses ataques
+
+- Funcionalidades 
+-> Para cumprir os objetivos de abstracao e gerencia , o SO tem recursos e particularidades
+. O SO defini 
