@@ -1,93 +1,84 @@
-#Introducao a Sistemas Operacionais 
-- Capitulo 1
-- Conceitos Basicos
--> Um sistema e composto por  software e hardware , entre os apps de hardware existe uma camada
-software multifacetada e complexa chamada sistema operacional
+# Introdução a Sistemas Operacionais - Capítulo 1: Conceitos Básicos
+O que é um Sistema Operacional (SO)?
 
-- Objetivos de um SO
--> A camada de software que opera entre hardware os programas aplicativos voltados ao usuario fi-
-nal 
-estrutura complexa de software ampla que incorpora aspectos de baixo nivel (drivers de dispositi
-vos e gerencis de memoria fisica) e alto nivel (programas utilitarios e interface grafica).
-!progamas utilitarios ajudam a gerenciar e ajustar o software do sistema ou de apps.
-. Limpar discos rigidos 
-. Fazer backup de dados
-. Compactar arquivos 
+Um sistema é composto por software e hardware. Entre os dispositivos de hardware, existe uma camada de software multifacetada e complexa chamada sistema operacional.
+Objetivos de um Sistema Operacional
 
-- Abstracao de recursos 
--> O SO defini interfaces abstratas para recursos do hardware para.
-.Prover interfaces de acesso aos dispositivos, mais simples de usar que as interfaces de baixo nivel
-.Tornar os apps independentes do hardware
-.Def interfaces de acesso homogeneas para dispositivos com tecnologias distintas
+O sistema operacional é a camada de software que atua entre o hardware e os programas aplicativos voltados ao usuário final.
+É uma estrutura complexa de software que abrange aspectos de:
 
-- Gerência de recursos
--> O SO que gerencia como o hardware distribui recursos dada a necessidade dos apps
-.O sistema deve distribuir de forma que cada app seja usado de forma correta mesmo com outro em exec-
-cução
-.O SO defini tambem a sequencia que algum recurso utiliza por exemplo (fifo) em uma impressora
-.O SO proteje tambem contra ataques de negacao , assim impendindo que os recursos do sistema sejam ma-
-nopolizados por esses ataques
+    Baixo nível: drivers de dispositivos, gerenciamento de memória física.
+    Alto nível: programas utilitários e interface gráfica.
 
-- Funcionalidades 
-. Gerencia de processos
--> Ele distribui a capacidade de processamento de forma justa entre os apps , sem que um monopolize os 
-recursos , e uma ilusao de que o app usado detem esse recurso , assim permitindo sistemas mais iterati-
-vos 
-. Gerencia de memoria
--> Fornecer a cada aplicacao uma area de memoria justa propia , independente e isolada das demais apli-
-cações e inclusive do sistema operacional , melhorando estabilidade e seguranca ja que com a memoria p-
-ropia impede que os apps isolados mudem o funcionamento dos demais
-.Gerencia de dispositivos
--> A função da gerência de dispositivos (também conhecida como gerência de entrada/saída) é implementar
-a interação com cada dispositivo por meio de drivers e criar modelos abstratos que permitam agrupar
-vários dispositivos similares sob a mesma interface de acesso.
-.Gerencia de arquivos
--> esta funcionalidade é construída sobre a gerência de dispositivose visa criar arquivos e diretórios,
-definindo sua interface de acesso e as regras para seu uso. É importante observar que os conceitos abs-
-tratos de arquivo e diretório são tão importantes e difundidos que muitos sistemas operacionais os
-usam para permitir o acesso a recursos que nada tem a ver com armazenamento
-.Gerencia de protecao
--> com computadores conectados em rede e compartilhados por vários usuários, é importante definir clar-
-amente os recursos que cada usuário pode acessar, as formas de acesso permitidas (leitura, escrita, etc.) 
-e garantir que essas definições sejam cumpridas.
+Programas utilitários ajudam a gerenciar e ajustar o software do sistema ou dos aplicativos. Exemplos:
 
-- Categorias
--> Os sistemas operacionais podem ser classificados segundo diversos parâmetros e aspectos, como tamanho 
-de código, velocidade, suporte a recursos específicos, acesso à rede, etc.
-.Batch(de lote )
-->  os sistemas operacionais mais antigos trabalhavam “por lote”, ou seja, todos os programas a executar 
-eram colocados em uma fila, com seus dados e demais informações para a execução
-.De rede 
--> um sistema operacional de rede deve possuir suporte à operação em rede, ou seja, a capacidade de ofer-
-ecer às aplicações locais recursos 
-.Distribuido
--> em um sistema operacional distribuído, os recursos de cada computador estão disponíveis a todos na rede
-, de forma transparente aos usuários. Ao lançar uma aplicação, o usuário interage com sua interface, mas n-
--ão sabe onde ela está executando ou armazenando seus arquivos: o sistema é quem decide, de forma transpar-
--ente ao usuário
-.Multiusuario
--> em um sistema operacional distribuído, os recursos de cada computador estão disponíveis a todos na rede, 
-de forma transparente aos usuários. Ao lançar uma aplicação, o usuário interage com sua interface, mas não
-sabe onde ela está executando ou armazenando seus arquivos: o sistema é quem decide, de forma transparente
-ao usuário
-.Servidor 
-->  sistema operacional servidor deve permitir a gestão eficiente de grandes quantidades de recursos 
-(disco, memória, processadores), impondo prioridadese limites sobre o uso dos recursos pelos usuários e seus
-aplicativos
-.Desktop 
--> um sistema operacional “de mesa” é voltado ao atendimento do usuário doméstico e corporativo para a reali-
--zação de atividades corriqueiras, como edição de textos e gráficos, navegação na Internet e reprodução de mídia
-.Movel
--> um sistema operacional móvel é usado em equipamentos de uso pessoal compactos, como smartphones e tablets. 
-Nesse contexto, as principais prioridades são a gestão eficiente da energia (bateria), a conectividade nos dive-
--rsos tipos de rede (wifi, GSM, Bluetooth, NFC, etc) e a interação com uma grande variedade de sensores (GPS, g-
--iroscópio, luminosidade, tela de toque, leitor de digitais,etc).
-.Embarcado
-->  um sistema operacional é dito embarcado (embutido ou embedded) quando é construído para operar sobre um har-
--dware com poucos recursos de processamento, armazenamento e energia. Aplicações típicas desse tipo de sistema 
-aparecem em sistemas de automação e controladores automotivos, equipamen tos eletrônicos de uso doméstico (leit-
--ores de DVD, TVs, fornos de microondas,centrais de alarme, etc.).
-.Tempo Real 
--> são sistemas nos quais o tempo é essencial. Ao contrário da ideia usual, um sistema operacional de tempo real
-não precisa ser necessariamente ultrarrápido; sua característica essencial é ter um comportamento temporal previ-
--sível, ou seja, seu tempo de resposta deve ser previsível no melhor e no pior caso de operação. 
+    Limpeza de discos rígidos
+    Backup de dados
+    Compactação de arquivos
+
+Abstração de Recursos
+
+O SO define interfaces abstratas para recursos do hardware com os seguintes objetivos:
+
+    Prover interfaces de acesso mais simples aos dispositivos, em comparação às interfaces de baixo nível.
+    Tornar os aplicativos independentes do hardware específico.
+    Definir interfaces homogêneas para dispositivos com tecnologias distintas.
+
+Gerência de Recursos
+
+O SO gerencia como o hardware distribui recursos conforme a necessidade dos aplicativos:
+
+    O sistema deve distribuir recursos de forma que cada aplicativo funcione corretamente, mesmo com outros em execução.
+    O SO também define a sequência de uso dos recursos (ex: política FIFO para impressão).
+    Protege contra ataques de negação de serviço, evitando o monopólio dos recursos por um único processo.
+
+Funcionalidades de um Sistema Operacional
+
+    Gerência de Processos
+    Distribui a capacidade de processamento de forma justa entre os aplicativos, evitando o monopólio de recursos. O SO cria uma ilusão de exclusividade, permitindo sistemas mais interativos.
+
+    Gerência de Memória
+    Cada aplicação recebe uma área de memória própria, isolada e independente das demais e do próprio sistema operacional. Isso melhora a estabilidade e a segurança, pois impede que aplicativos interfiram uns nos outros.
+
+    Gerência de Dispositivos (Entrada/Saída)
+    Implementa a interação com os dispositivos por meio de drivers. Também cria modelos abstratos que agrupam dispositivos similares sob uma mesma interface de acesso.
+
+    Gerência de Arquivos
+    Criada sobre a gerência de dispositivos, essa funcionalidade visa criar e gerenciar arquivos e diretórios, definindo interfaces de acesso e regras de uso. Arquivos e diretórios são conceitos abstratos tão importantes que até recursos não relacionados ao armazenamento podem ser acessados por meio deles.
+
+    Gerência de Proteção
+    Em ambientes com múltiplos usuários e redes, o SO deve:
+        Definir quais recursos cada usuário pode acessar.
+        Estabelecer os modos de acesso (leitura, escrita etc.).
+        Garantir que essas permissões sejam respeitadas.
+
+Categorias de Sistemas Operacionais
+
+Os sistemas operacionais podem ser classificados de acordo com diversos aspectos, como: tamanho do código, velocidade, suporte a recursos específicos, acesso à rede, etc.
+
+    Batch (em lote)
+    Os primeiros sistemas operacionais executavam programas em lote. Os programas eram colocados em uma fila, com seus dados e informações de execução.
+
+    De Rede
+    Possuem suporte à operação em rede, oferecendo às aplicações locais o acesso a recursos disponíveis remotamente.
+
+    Distribuído
+    Os recursos de todos os computadores da rede estão disponíveis de forma transparente. O usuário interage com a aplicação sem saber onde ela está sendo executada ou armazenada.
+
+    Multiusuário
+    Permite que vários usuários utilizem os recursos do sistema simultaneamente, com controle de acesso e gerenciamento adequado.
+
+    Servidor
+    Voltado à gestão eficiente de grandes volumes de recursos (disco, memória, processadores), aplicando prioridades e limites sobre o uso desses recursos pelos usuários e aplicativos.
+
+    Desktop (de mesa)
+    Projetado para usuários domésticos e corporativos, com foco em atividades cotidianas como edição de textos, navegação na internet e reprodução de mídia.
+
+    Móvel
+    Usado em dispositivos portáteis como smartphones e tablets. Prioriza a gestão de energia (bateria), conectividade (Wi-Fi, GSM, Bluetooth, NFC, etc.) e interação com sensores (GPS, giroscópio, luminosidade, touchscreen, biometria, etc.).
+
+    Embarcado (Embedded)
+    Projetado para operar em hardwares com poucos recursos. Muito utilizado em automação, controle automotivo, e dispositivos domésticos como TVs, micro-ondas, sistemas de alarme, entre outros.
+
+    Tempo Real
+    São sistemas em que o tempo de resposta deve ser previsível, mesmo que não necessariamente rápido. A principal característica é garantir comportamento temporal determinístico, importante para sistemas críticos como controle de tráfego aéreo, sistemas industriais e automotivos.
