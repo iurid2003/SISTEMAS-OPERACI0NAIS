@@ -25,7 +25,6 @@ int mymkdir() {
   char pat[PATH_MAX];
   printf("Nome do diretorio");
   scanf("%s",pat);
-
   if(mkdir(pat,755) != 0){
     perror("mkdir() error");
     return 1 ;
@@ -37,6 +36,8 @@ int myrmdir() {
 
   // int rmdir(const char *pathname); 
      char diretorio[PATH_MAX];
+     printf("Nome do diretorio");
+     scanf("%s",diretorio);
     if (rmdir(diretorio) != NULL)
      perror("rmdir() error"); 
      else
@@ -46,7 +47,9 @@ int myrmdir() {
 
 int mycd() {
   // int chdir(const char *path);
-   const char diretorio[PATH_MAX];
+    char diretorio[PATH_MAX];
+    printf("Nome do diretorio");
+    scanf("%s",diretorio);
    if(chdir(diretorio) != NULL){
      perror("chdir() error");
      return -1;
