@@ -28,8 +28,6 @@ int main()
     
         if(b == 0 ){
             wait(&status);
-            printf ("%d\n",WEXITSTATUS(status) * 1);
-
             printf("%d\n",status);
             printf("Processo Neto  C : %d Filho  B : %d\n", getpid(), getppid()); 
             sleep(1);
