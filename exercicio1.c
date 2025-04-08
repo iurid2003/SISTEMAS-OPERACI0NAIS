@@ -1,5 +1,4 @@
 // ex1: fork/wait básico
-// ex1: fork/wait básico
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
