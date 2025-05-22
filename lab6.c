@@ -1,127 +1,65 @@
-/*
-Acesso concorrente a uma variável por muitas threads, solução com semáforo.
-
-Compilar com gcc -Wall me6-semaphore.c -o me6 -lpthread
-
-Carlos Maziero, DINF/UFPR 2020
-*/
-
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <semaphore.h>
+#include <unistd.h>
+#include <time.h>
 
-#define NUM_THREADS  20 /*NUM Carros*/
-#define NUM_STEPS  1000 
-#define NUM_VAGAS 10 /*VAGAS EM CADA CANCELA*/
-#define NUM_CANCELAS 7 
+#define NUM_THREADS 20     // Número de carros
+#define NUM_CANCELAS 7     // Número de cancelas
+#define VAGAS_POR_CANCELA 10
 
+sem_t cancelas[NUM_CANCELAS];  // Um semáforo por cancela
 
+void *carro(void *arg) {
+    int id = *((int *)arg);
+    int cancela_escolhida = rand() % NUM_CANCELAS;
 
-int cancelas_vagas[NUM_CANCELAS][NUM_VAGAS] = {0};
+    printf("Carro %d tentando entrar na cancela %d\n", id, cancela_escolhida);
 
+    // Tenta entrar na cancela (ocupar vaga)
+    sem_wait(&cancelas[cancela_escolhida]);
 
+    printf("Carro %d entrou na cancela %d\n", id, cancela_escolhida);
+    sleep(1 + rand() % 3); // Simula tempo de passagem
 
+    printf("Carro %d saindo da cancela %d\n", id, cancela_escolhida);
+    sem_post(&cancelas[cancela_escolhida]); // Libera a vaga
 
-int sum = 0 ;
-sem_t s ;
-
-void *threadBody(void *id)
-{
-  int i ;
-
-  for (i=0; i< NUM_STEPS; i++)
-  {
-    sem_wait (&s) ;
-    sum += 1 ;   // critical section
-    sem_post (&s) ;
-  }
-
-  pthread_exit (NULL) ;
+    pthread_exit(NULL);
 }
 
-int main (int argc, char *argv[])
-{
-  srand(time(NULL));
-  int cancela[7] = {0};
-  int carros[NUM_THREADS];
-  int sum = 0 ;
+int main() {
+    pthread_t threads[NUM_THREADS];
+    int ids[NUM_THREADS];
 
-  for (size_t i = 0; i < NUM_THREADS - 1; i++)
-  {
-    /*ordem de chegada*/
-    int numero_carro = rand() %  20 + 1 ;
-    carros[NUM_THREADS] = numero_carro  ;
-    sum = sum + numero_carro ;
-    if(sum == 20 ){
-      return 1 ;
-      printf("Ordem Carros %d \n",carros[NUM_THREADS]);
+    srand(time(NULL));
+
+    // Inicializa os semáforos (10 vagas por cancela)
+    for (int i = 0; i < NUM_CANCELAS; i++) {
+        sem_init(&cancelas[i], 0, VAGAS_POR_CANCELA);
     }
-    
-  }
-  
 
-  pthread_t thread [NUM_THREADS] ;
-  pthread_attr_t attr ;
-  long i, status ;
- 
-
-
-  // initialize semaphore to 1
-  sem_init (&s, 0, 1) ;
-
-  // define attribute for joinable threads
-  pthread_attr_init (&attr) ;
-  pthread_attr_setdetachstate (&attr, PTHREAD_CREATE_JOINABLE) ;
-
-  // create threads 
-  for(i=0; i<NUM_THREADS; i++)
-  { 
-    sleep(5);
-    status = pthread_create (&thread[i], &attr, threadBody, (void *) i) ;
-    for (size_t i = 0; i < 7; i++) /*encher de carro as cancelas */
-    {
-      down(NUM_THREADS);
-      i++;
+    // Cria as threads (carros)
+    for (int i = 0; i < NUM_THREADS; i++) {
+        ids[i] = i + 1;
+        if (pthread_create(&threads[i], NULL, carro, &ids[i]) != 0) {
+            perror("Erro ao criar thread");
+            exit(1);
+        }
+        usleep(100000); // Simula chegada espaçada dos carros
     }
-    /*se a cancela atual estiver cheia */
-    /*pula pra proxima*/
-    if(cancela[i] = 10 ){
-      for (size_t i = 0; i < 7; i++) 
-    {
-      /* code */
-      i = 0 ;
+
+    // Espera todas as threads terminarem
+    for (int i = 0; i < NUM_THREADS; i++) {
+        pthread_join(threads[i], NULL);
     }
-  }
-   
-    
-     
-    if (status)
-    {
-      perror ("pthread_create") ;
-      exit (1) ;
+
+    // Destroi os semáforos
+    for (int i = 0; i < NUM_CANCELAS; i++) {
+        sem_destroy(&cancelas[i]);
     }
-  }
 
-
-
-
-   
-  // wait all threads to finish   
-  for (i=0; i<NUM_THREADS; i++)
-  {
-    status = pthread_join (thread[i], NULL) ;
-    if (status)
-    {
-      perror ("pthread_join") ;
-      exit (1) ;
-    }
-  }
-
-  /*Inicia 20 vagas pra pra 7 cancelas  */
-
- 
-
-  pthread_attr_destroy (&attr) ;
-  pthread_exit (NULL) ;
+    printf("Todos os carros passaram pelas cancelas.\n");
+    return 0;
 }
