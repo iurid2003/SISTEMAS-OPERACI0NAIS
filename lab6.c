@@ -21,7 +21,7 @@ void *carro(void *arg) {
     sem_wait(&cancelas[cancela_escolhida]);
 
     printf("Carro %d entrou na cancela %d\n", id, cancela_escolhida);
-    sleep(1 + rand() % 3); // Simula tempo de passagem
+    sleep(5); // Simula tempo de passagem
 
     printf("Carro %d saindo da cancela %d\n", id, cancela_escolhida);
     sem_post(&cancelas[cancela_escolhida]); // Libera a vaga
@@ -47,7 +47,7 @@ int main() {
             perror("Erro ao criar thread");
             exit(1);
         }
-        usleep(100000); // Simula chegada espaçada dos carros
+        usleep(1000); // Simula chegada espaçada dos carros
     }
 
     // Espera todas as threads terminarem
